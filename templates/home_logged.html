@@ -1,0 +1,115 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="static\styles\styles.css">
+    
+    
+    <title>Populairify</title>
+  </head>
+  <body>
+
+
+    <header>
+      
+      <div>
+        <h1>Populairify</h1>
+
+        <button class="log_out" onclick="window.location='/logout';">Logout</button>
+        <button class="home_button" onclick="window.location='/';">Home</button>
+      </div>
+    </header>
+    <main>
+      <div class="wrapper">
+        <input type="checkbox" id="btn" hidden>
+        <label for="btn" class="menu-btn">
+        </label>
+        <nav id="sidebar" class="sidebar {% if failed_message %}active{% endif %}">
+
+          <div class="content">
+            <h1 id="title_suggestions">Suggest a song</h1>
+            <p id="explanation_suggestions"><strong>Hey there!</strong> Do you have some good songs you want to share that you think others might enjoy? Or do you maybe know a good artist who doesn't get the recognition they deserve? Here at Populairify, we value your musical taste and want to help showcase the diversity of music out there. That's why we've added a feature that allows you to suggest songs for others to listen to and vote on.</p>
+
+            
+            <p id="thank_suggestions">Thanks to your suggestion, someone will hopefully discover an amazing song that they like so much, they'll add it to their playlist. And hopefully with someone else's suggestion, you will too. <br> <br>
+            <strong>With a great community comes great results.</strong></p>
+
+            {% if failed_message %}
+              <div id="failed_message">{{ failed_login_message }}</div>
+            {% endif %}
+
+
+            <form onsubmit="return validateForm()" method="post">
+              <div class="data">
+                 <!-- <label>Spotify URL</label> -->
+                 <input type="text" name="spotify_url_or_ID" id="spotify_url_or_ID" required placeholder="Spotify URL">
+              </div>
+              <!-- <p id="seperation_or">or</p>
+              <div class="data">
+  
+                 <input type="text" name="song_id" placeholder="Song ID">
+              </div> -->
+
+              <div class="btn">
+                 <div class="inner"></div>
+                 <button type="submit">Send</button>
+              </div>
+
+           </form>
+
+            <script>
+              function validateForm() {
+                var input = document.getElementById('spotify_url_or_ID');
+                var value = input.value.trim();
+                if (value === '') {
+                  alert('Please enter a value that is not just whitespace.');
+                  input.value = '';
+                  return false;
+                }
+                input.value = value;
+                return true;
+              }
+            </script>
+
+          </div>
+        </nav>
+      </div>
+      
+      <section id="song-preview">
+        <iframe style="border-radius:10px" src="{{ song_embed }}" width="105%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <!-- <div id="song-info">
+          <p id="song-name"></p>
+          <p id="artist-name"></p>
+          <p id="album-name"></p>
+          <p id="release-date"></p>
+        </div> -->
+      </section>
+      <div>
+        <section class="rate">
+          <input type="radio" onclick="window.location='/voted/5/{{ song_id }}';" id="star5" name="rate" value="5" />
+          <label for="star5" title="5 stars">5 stars</label>
+          <input type="radio" onclick="window.location='/voted/4/{{ song_id }}';" id="star4" name="rate" value="4" />
+          <label for="star4" title="4 stars">4 stars</label>
+          <input type="radio" onclick="window.location='/voted/3/{{ song_id }}';" id="star3" name="rate" value="3" />
+          <label for="star3" title="3 stars">3 stars</label>
+          <input type="radio" onclick="window.location='/voted/2/{{ song_id }}';" id="star2" name="rate" value="2" />
+          <label for="star2" title="2 stars">2 stars</label>
+          <input type="radio" onclick="window.location='/voted/1/{{ song_id }}';" id="star1" name="rate" value="1" />
+          <label for="star1" title="1 star">1 star</label>
+        </section>
+      </div>
+
+    </main>
+    <footer>
+      <p>Copyright ©2023 Populairify</p>
+    </footer>
+    <script src="/static/js/script.js"></script>
+
+    {% if suggestion_message %}
+      <script>
+        window.onload = function() {
+          alert("{{ suggestion_message }}");
+        };
+      </script>
+	  {% endif %}
+
+  </body>
+</html>

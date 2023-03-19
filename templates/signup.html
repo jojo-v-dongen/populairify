@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Sign Up</title>
+      <link rel="stylesheet" href="static/styles/styles_signup.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+   </head>
+   <body>
+      <div class="center">
+
+         <div class="container">
+            <div class="text">
+               Sign up form
+            </div>
+            <form method="post" action="/sign-up">
+               <!-- <div class="data">
+                  <label>Email</label>
+                  <input type="text" name="email" required>
+               </div> -->
+               <div class="data">
+                  <label>Email</label>
+                  {% if error_failed_login %}
+                  <input type="text" name="email" id="email" value="{{ error_failed_login }}" 
+                  onfocus="this.value=''; this.style.color='black'; this.style.fontWeight='normal'">
+                  <!-- <div id="error_message">Passwords did not match.</div> -->
+                  {% else %}
+                  <input type="text" name="email" required>
+                  {% endif %}
+                 </div>
+               <div class="data">
+                <label>Username</label>
+                <input type="text" name="username" maxlength="10" required>
+               </div>
+               <div class="data">
+                  <label>Password</label>
+                  <input type="password" name="password" required>
+               </div>
+               <div class="data">
+                <label>Repeat password</label>
+                {% if error_message %}
+                <input type="text" name="repeat_password" id="repeat_password" value="Passwords do not match." onfocus="this.type='password'; this.value=''; this.style.color='black'; this.style.fontWeight='normal'">
+                <div id="error_message">Passwords did not match.</div>
+                {% else %}
+                <input type="password" name="repeat_password" required>
+                {% endif %}
+               </div>
+               <!-- {% if error_message %}
+               <div id="error-message">{{ error_message }}</div>
+               {% endif %} -->
+               <div class="btn">
+                  <div class="inner"></div>
+                  <button type="submit">Sign up</button>
+               </div>
+               <div class="signup-link">
+                  Already a member? <a href="/login">Login now</a>
+               </div>
+               <div class="home-btn">
+                  <button class="home-button" onclick="window.location='/';">Home</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>

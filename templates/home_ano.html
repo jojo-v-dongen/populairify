@@ -1,0 +1,151 @@
+<html>
+  <head class="background">
+    <link rel="stylesheet" href="https://use.typekit.net/kxy2sus.css">
+
+
+    <link rel="stylesheet" type="text/css" href="static\styles\styles_home_ano.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    
+
+    
+    <title>Populairify</title>
+  </head>
+  <body>
+    <div class="content">
+      <header>
+        <div>
+
+          {% if session.user_email and session.user_username %}
+          <h3>Welcome back {{session.user_username}}</h3>
+          
+          {% endif %}
+
+          <div class="header-title">
+            <h1>Populairify</h1>
+          </div>
+          {% if session.user_email and session.user_username %}
+          <button class="log_out" onclick="window.location='/logout';">Logout</button>
+          {% else %}
+          <button class="reg" onclick="window.location='/sign-up';">Sign up</button>
+          <button class="log" onclick="window.location='/login';">Login</button>
+
+          <style>
+            header div h1 {
+              margin: 0;
+              text-align: center;
+              color: rgb(108, 194, 101);
+              font-weight: 100;
+              font-style: normal;
+              margin-left: 250px;
+            }
+          </style>
+          {% endif %}
+
+        </div>
+      </header>
+      <main>
+
+
+        <section>
+          <!--for demo wrap-->
+          <h1 class="title_table">TOP 10 SONGS THIS MONTH</h1>
+          <div class="full-table">
+            <div class="tbl-header">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Song Name</th>
+                    <th>Artist Name</th>
+                    <th>Rating</th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+            <div class="tbl-content">
+              <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                  {% for song in songs %}
+                  <tr>
+                    <td>{{ song.ranking }}</td>
+                    <td>
+                      <a href="{{ song.song_album_url }}">
+                        <img src="{{ song.cover_url }}" alt="Album_Cover">
+                      </a>
+                    </td>
+                    <td>
+                      <a href="{{ song.song_url_spotify }}"  style="color: inherit; text-decoration: none;">{{ song.name }} </a>
+                    </td>
+                    <td>
+                      <a href="{{ song.song_artist_url }}"  style="color: inherit; text-decoration: none;">{{ song.artist_name }}</a>
+                    </td>
+                    <td class="rating">
+                      {% for i in range(5) %}
+                        {% if (i+0.6) < song.rating %}
+                          <i class="fas fa-star" title="{{ song.rating }}"></i>
+                        {% else %}
+                          <i class="far fa-star" title="{{ song.rating }}"></i>
+                        {% endif %}
+                      {% endfor %}
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="seperation">
+
+          </div>
+
+          <div class="rectangle">
+            <h1 id="website_expl_title">What is this website?</h1>
+            <div id="website_explanation">
+              <h3>
+                Have you ever wanted to explore new music?<br>
+                Listen to songs that aren't chosen by Spotify's algorithms?<br> Maybe help a small music artist gain some more recognition?<br>
+                <strong>That's great!</strong><br> Because that is exactly what this website is designed to do.
+              </h3>
+              <h2>
+                How does it work?
+              </h2>
+              <h3>
+                After creating an account, you are able to listen and vote for unpopular songs that are randomly generated using the Spotify API. A 1-star vote indicates a strong dislike towards the song, while a 5-star vote indicates a strong enjoyment towards the song. Your vote will be anonymously saved in a databse to give the song an average rating and a chance to appear on the leaderboard.
+              </h3>
+              <!-- <h2>
+                Why do I need to create an account?
+              </h2>
+              <h3>
+                The only reason is to keep track of which songs you've already voted for. Your votes will remain anonymous and won't be saved in your account, ensuring that you won't have to or are able to vote for the same song multiple times. Creating an account is simple - all you need to do is fill in your username, email, and password, and you're ready to go!
+              </h3> -->
+            </div>
+            {% if session.user_email and session.user_username %}
+            <div class="buttons">
+              <button class="start_voting" onclick="window.location='/voting';">Start Voting</button>
+            </div>
+            {% else %}
+            <div class="buttons">
+              <button class="reg2" onclick="window.location='/sign-up';">Get Started</button>
+              or
+              <button class="log2" onclick="window.location='/login';">Login</button>
+            </div>
+            {% endif %}
+
+
+
+          </div>
+
+
+        </section>
+        
+
+
+      </main>
+      <footer>
+        <p>Copyright ©2023 Populairify</p>
+      </footer>
+    </div>
+  </body>
+</html>

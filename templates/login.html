@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal -->
+<html lang="en" dir="ltr">
+   <head>
+      <meta charset="utf-8">
+      <title>Login</title>
+      <link rel="stylesheet" href="static/styles/styles_login.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+   </head>
+   <body>
+      <div class="center">
+
+         <div class="container">
+            <div class="text">
+               Login Form
+            </div>
+            {% if failed_login_message %}
+            <div id="failed_login_message">{{ failed_login_message }}</div>
+            {% endif %}
+
+            {% with messages = get_flashed_messages(category_filter=["message"]) %}
+               {% if messages %}
+                  <div id="attention_message">{{ messages[0] }}</div>
+               {% endif %}
+            {% endwith %}
+
+            {% with messages = get_flashed_messages(category_filter=["pass_change"]) %}
+               {% if messages %}
+                  <div id="pass_message">{{ messages[0] }}</div>
+               {% endif %}
+            {% endwith %}
+
+            <form method="post">
+               <div class="data">
+                  <label>Email</label>
+                  <input type="text" name="email" required>
+               </div>
+               <div class="data">
+                  <label>Password</label>
+                  <input type="password" name="password" required>
+               </div>
+               <div class="forgot-pass">
+                  <a href="/forgot_passw">Forgot Password?</a>
+               </div>
+               <div class="btn">
+                  <div class="inner"></div>
+                  <button type="submit">login</button>
+               </div>
+               <div class="signup-link">
+                  Not a member? <a href="/sign-up">Signup now</a>
+               </div>
+               <div class="home-btn">
+                  <button class="home-button" onclick="window.location='/';">Home</button>
+               </div>
+            </form>
+         </div>
+      </div>
+   </body>
+</html>
