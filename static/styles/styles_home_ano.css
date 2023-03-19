@@ -1,0 +1,455 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  display: flex;
+  background-image: url("https://wallpaperaccess.com/full/1216414.jpg");
+  background-size: cover;
+  overflow: auto;
+}
+
+.content {
+  background-color: rgba(0, 0, 0, 0.4);
+  
+
+}
+
+body::after {
+
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+ 
+}
+
+.background-image {
+  background-color: rgba(0, 0, 0, 0.6);
+  
+}
+
+/* Title header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Align items to the sides */
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  height: 9.5%;
+}
+
+header div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items to the sides */
+  width: 100%;
+  flex-grow: 1;
+}
+
+header div .header-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1; /* Take up remaining space */
+}
+
+header div h1 {
+  margin: 0;
+  text-align: center;
+  color: rgb(108, 194, 101);
+  font-weight: 100;
+  font-style: normal;
+  margin-left: -50px;
+}
+
+header div h3 {
+  margin: 0;
+  margin-left: 5px;
+  text-align: left;
+  color: rgb(189, 172, 172);
+  font-weight: 60;
+  font-style: normal;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 0;
+  width: 100px;
+  padding: 10px 0;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+  flex-shrink: 0; /* Prevent the button from shrinking */
+}
+.reg {
+  color: white;
+  background-color: rgba(104, 85, 224, 1);
+}
+
+.log {
+  color: rgb(104, 85, 224);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(104, 85, 224, 1);
+  margin: 10px;
+  margin-right: 30px;
+}
+
+.log_out {
+  color: white;
+  background-color: rgba(104, 85, 224, 1);
+  margin: 10px;
+  margin-right: 30px;
+}
+
+
+/* @media screen and (max-width: 600px) {
+  header div {
+    flex-wrap: wrap; 
+  }
+  
+  header div h1 {
+    margin: 10px auto; 
+    flex-basis: 100%; 
+  }
+  
+  header div button {
+    margin-top: 10px;
+    flex-basis: calc(50% - 5px); 
+  }
+} */
+
+
+
+button:hover {
+  color: white;
+
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+  background-color: rgba(104, 85, 224, 1);
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 1em;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rectangle {
+  height: 100px;
+  width: 50px;
+  background-color: #555;
+
+  
+  text-align: left;
+}
+
+
+
+footer {
+  background-color: rgba(0, 0, 0, 0.5); /* This will make the header semi-transparent */
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  position: auto;
+  bottom: 0;
+  width: 100%;
+  margin-top: auto;
+}
+
+
+
+
+
+/* TOP 10 SONGS */
+h1{ 
+  font-size: 40px;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-weight: 500;
+  text-align: left;
+  margin-bottom: 15px;
+  padding-left: 30px;
+  color: black;
+  
+}
+
+table{
+  max-width: 1000px; /* adjust the value as desired */
+  width: 100%;
+  table-layout: fixed;
+  margin: 0 auto;
+  background: -webkit-linear-gradient(left, #25b7c4, #7b2cea);
+  background: linear-gradient(to right, #25b7c4, #7b2cea);
+  font-family: Arial, sans-serif;
+  z-index: 1;
+}
+
+.tbl-header{
+  font-family: Arial, sans-serif;
+  width: 700px;
+  background-color: transparent;
+  display: inline-table;
+  position: relative;
+  color: black;
+  z-index: 2;
+}
+.tbl-header td {
+  position: relative;
+  z-index: 3; /* set the z-index of the td elements to be above the .tbl-header element */
+}
+.tbl-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 1;
+  pointer-events: none;
+}
+.tbl-content{
+  height:445px;
+  width: 700px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 0px solid rgba(255,255,255,0.3);
+  
+  font-family: Arial, sans-serif;
+}
+.tbl-content tr td rating {
+  color: #597cba;
+}
+
+
+th{
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+  color: black;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 3;
+}
+
+th:nth-child(1) { 
+  width: 25px;
+
+  }
+
+th:nth-child(2) {
+  width: 85px;
+
+}
+th:nth-child(3) {
+  width: 150px;
+
+}
+
+
+td{
+  height: 75px;
+  padding-right: 5px;
+  text-align: center;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 18px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+  padding-right: 0px;
+  
+}
+td img {
+  width: 75px;
+  height: 75px;
+}
+
+.link-text {
+  text-decoration: none;
+  color: white !important;
+}
+
+td:nth-child(1) { 
+  width: 25px;
+  padding-right: 0px;
+  padding-left: 0px;
+  text-align: right;
+  vertical-align: middle;
+  font-weight: 700;
+  font-size: 25px;
+  color: rgb(21, 21, 21);
+  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
+  
+  }
+
+td:nth-child(2) {
+  width: 75px;
+  padding: 5px;
+  align-items: center;
+  vertical-align: center;
+  
+}
+td:nth-child(3) {
+  width: 150px;
+  align-items: center;
+  vertical-align: center;
+}
+
+.full-table {
+  position: relative;
+  float: left;
+
+}
+
+
+.seperation {
+  width: 175px;
+  height: 400px;
+  float: left;
+  /* color: white;
+  background-color: rgba(250, 250, 250, 0.8); */
+  /* background-color: #A0830E */
+
+  ;
+
+}
+
+.rectangle {
+
+  width: 650px;
+  height: 500px;
+  background-color: rgba(0, 0, 0, 0.5);
+  float: right;
+  color: #6d5848;
+  font-family: Arial, sans-serif;
+  font-weight: 400;
+  
+}
+#website_expl_title {
+  font-weight: 700;
+  color: #1DB954;
+  align-items: center;
+  text-align: center;
+  font-style: bold;
+}
+
+strong {
+  font-weight: bolder;
+  
+}
+#website_explanation {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: normal;
+  text-align: center;
+  /* color: rgb(189, 172, 172); */
+  color: #C4CAD0;
+
+}
+
+#website_explanation h3{
+  font-weight: 400;
+}
+#website_explanation h2{
+  color: #1DB954;
+}
+
+
+
+.buttons {
+  margin-left: 10px;
+  margin-right: 10px;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  color: white;
+}
+
+
+
+.title_table{
+  /* background: linear-gradient(to right, #1DB954
+  , hsl(0, 0%, 100%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text; */
+  color: #1DB954;
+  font-weight: 700;
+  font-style: bold;
+  padding-left: 80px;
+
+  
+}
+
+
+
+
+
+
+
+
+
+@supports (background-clip: text) {
+  .gradient-text {
+    background-image: linear-gradient(60deg, #E21143, #FFB03A);
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+.reg2 {
+  color: white;
+  background-color: rgba(104, 85, 224, 1);
+}
+
+.log2 {
+  color: rgb(104, 85, 224);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(104, 85, 224, 1);
+}
+
+.start_voting {
+  color: white;
+  background-color: rgba(104, 85, 224, 1);
+
+
+}
+
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.3); 
+}
+
+
+

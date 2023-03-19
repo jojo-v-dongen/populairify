@@ -1,0 +1,430 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-image: url('https://images.unsplash.com/photo-1477346611705-65d1883cee1e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+  background-size: cover;
+  overflow: auto;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5); /* This will make the header semi-transparent */
+  color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  text-transform: uppercase;
+}
+
+
+
+header div h1 {
+  margin: 0;
+  text-align: center;
+}
+
+header div button {
+  float: right;
+  margin-top: -2.69em;
+  padding-right: 0%;
+}
+button {
+  cursor: pointer;
+  border: 0;
+  border-radius: 4px;
+  font-weight: 600;
+  margin: 0 10px;
+  width: 100px;
+  padding: 10px 0;
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.2);
+  transition: 0.4s;
+}
+
+/* ################## */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+/* *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+} */
+
+.wrapper{
+  height: 30%;
+  width: 400px;
+  position: absolute;
+  top: 12.5%;
+  right: 0;
+}
+
+.wrapper .menu-btn{
+  position: absolute;
+  top: calc(2px + 12.5%);
+  /* background: #4a4a4a; */
+  color: #fff;
+  height: 45px;
+  width: 45px;
+  z-index: 9999;
+  /* border: 1px solid #333; */
+  cursor: pointer;
+  display: flex;
+  right: 0px;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  background-image: url('arrows.png');
+  background-repeat: no-repeat;
+  background-size:contain;
+  transform: rotate(180deg);
+}
+
+.wrapper .menu-btn i{
+  position: absolute;
+  font-size: 23px;
+  transition: all 0.3s ease;
+  right: 200;
+  float: right;
+}
+
+.wrapper .menu-btn i.fa-times{
+  opacity: 0;
+}
+
+#btn:checked ~ .menu-btn i.fa-times{
+  opacity: 1;
+}
+
+#btn:checked ~ .menu-btn i.fa-bars{
+  opacity: 0;
+}
+
+#sidebar{
+  position: fixed;
+  background-color: rgba(64, 64, 64, 0.85);
+  
+  height: 60%;
+  width: 450px;
+  overflow: auto; /* set overflow to auto */
+  right: -450px;
+  transition: all 0.3s ease;
+  top: 50%;
+  transform: translateY(-55%);
+  border-width: 10px;
+  border-color: #202020;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+#btn:checked ~ #sidebar{
+  right: 0;
+}
+
+#sidebar .list-items{
+  position: relative;
+  background: #404040;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+}
+#sidebar .content {
+  display: none;
+}
+
+#btn:checked ~ #sidebar .content {
+  display: block;
+}
+
+
+#btn:checked ~ #sidebar .content {
+  transform: translateX(0);
+}
+
+/* Add this CSS for the arrow animation */
+#btn:checked ~ .menu-btn{
+  animation: spin 0.3s ease-in-out forwards;
+  right: 400px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(180deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.menu-btn:not(:checked){
+  animation: spin-back 0.3s ease-in-out forwards;
+}
+
+@keyframes spin-back {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+
+#title_suggestions {
+  color: white; /* Replace "red" with the desired color value */
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#explanation_suggestions {
+  color: #C4CAD0;
+  margin-left: 7px;
+  margin-right: 7px;
+  text-align: center;
+  margin-top: -10px;
+}
+
+#thank_suggestions {
+  color: #C4CAD0;
+  margin-left: 7px;
+  margin-right: 7px;
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: -5px;
+}
+
+#failed_message {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: -10px;
+  margin-top: 10px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+}
+
+form .data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 0;
+}
+
+
+
+form .data input{
+  height: 40px;
+  width: 120%;
+
+  font-size: 17px;
+  border: 1px solid silver;
+  text-align: center;
+  align-items: center;
+  margin: 0px;
+}
+
+form .data input:focus{
+  border-color: #3498db;
+  border-bottom-width: 2px;
+}
+
+
+/* SEND BUTTON */
+form .btn {
+  margin: 5px 0;
+  height: 40px;
+  width: 59%; /* changed from 75% */ 
+  position: relative;
+  overflow: hidden;
+}
+
+form .btn .inner{
+  height: 100%;
+  width: 300%;
+  position: absolute;
+  left: -100%;
+  z-index: -1;
+  background: -webkit-linear-gradient(right, #56d8e4, #9f01ea, #56d8e4, #9f01ea);
+  transition: all 0.4s;
+}
+
+form .btn:hover .inner{
+  left: 0;
+}
+
+form .btn button {
+  height: 100%;
+  width: 100%; /* changed from 75% */
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+#seperation_or {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #C4CAD0;
+}
+
+
+@keyframes hideAnimation {
+  to {
+    visibility: hidden;
+    width: 0;
+    height: 0;
+  }
+}
+
+
+
+
+
+/* ########################### */
+
+
+.log_out {
+  color: white;
+  background-color: rgba(104, 85, 224, 1);
+}
+
+.home_button {
+  color: rgb(104, 85, 224);
+  background-color: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(104, 85, 224, 1);
+}
+
+button:hover {
+  color: white;
+
+  box-shadow: 0 0 20px rgba(104, 85, 224, 0.6);
+  background-color: rgba(104, 85, 224, 1);
+}
+
+
+nav {
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0 1em;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.rectangle {
+  height: 100px;
+  width: 50px;
+  background-color: #555;
+
+  
+  text-align: left;
+}
+
+
+section#song-preview {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative; top: 64px;
+}
+
+/* section#song-preview img {
+  width: 200px;
+  height: 200px;
+  border-radius: 90%;
+} */
+
+/* section#song-preview audio {
+  width: 100%;
+} */
+
+
+.column {
+  float: left;
+  width: 33.33%;
+
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+ 
+.rate {
+  position: absolute;
+  top: 100%;
+
+  margin-top: 64px;
+  transform: translate(-98%,0);
+  /* other properties */
+
+}
+.rate:not(:checked) > input {
+  position: relative; bottom: 0;
+  top:-9999px;
+}
+.rate:not(:checked) > label {
+  float:right;
+  width:1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:60px;
+  color:#ccc;
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;    
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;  
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+
+footer {
+    background-color: rgba(0, 0, 0, 0.5); /* This will make the header semi-transparent */
+    color: #fff;
+  text-align: center;
+  padding: 1em 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+    
