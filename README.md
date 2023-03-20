@@ -1,5 +1,6 @@
 # populairify
 A website to explore and suggest music from unpopular artists.
+Currently still under development, coming soon!
 
 ## What is Populairify?
 Populairify is a non-profit web platform that aims to benefit music listeners and creators alike. By creating an account, users gain access to a database of randomly generated, "unpopular" songs by emerging artists on Spotify. By listening to and voting on these tracks, users can discover new music and support independent artists in gaining exposure and recognition. Populairify offers a unique alternative to mainstream music streaming services, providing a valuable resource for music enthusiasts seeking to expand their musical horizons.
