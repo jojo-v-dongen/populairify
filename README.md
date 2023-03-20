@@ -1,5 +1,5 @@
 # populairify
-A website to explore and suggest music from unpopular artists.
+A website to explore and suggest music from unpopular artists. <br>
 Currently still under development, coming soon!
 
 ## What is Populairify?
