@@ -30,6 +30,8 @@ I would like to express my gratitude to all those who have contributed to the de
 Note: All screenshots displayed here were taken before the website was made public. Therefore, none of the songs shown have been voted on, and they are for display purposes only.
 
 ![Home Page](https://i.imgur.com/YEP9GlH.png)
+<br>
+<br>
 ![Voting Page](https://i.imgur.com/AuSu5Mh.jpeg)
 Remember to click the arrow on the right side of the screen in order to show the "suggest a song" popup.
 
